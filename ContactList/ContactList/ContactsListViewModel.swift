@@ -48,26 +48,35 @@ final class ContactsListViewModel {
         }
     }
     
-    func generateRandomName(length: Int) -> String {
+    /// Generate random combination for name and last name
+    func generateRandomName( length : Int ) -> String {
+        
         let letters = "abcdefghijklmnopqrstuvwxyz"
-        var name = String((0..<length).map { _ in letters.randomElement()! })
-        name = name.prefix(1).capitalized + name.dropFirst()
+        var name = String( ( 0..<length ).map { _ in letters.randomElement()! } )
+        name = name.prefix( 1 ).capitalized + name.dropFirst()
         return name
+        
     }
     
+    /// Generate random gender
     func generateRandomGender() -> String {
+        
         let genders = [ "Man", "Female" ]
         return genders.randomElement()!
+        
     }
     
+    /// Generate random Bool
     func generateRandomFavorite() -> Bool {
+        
         return Bool.random()
+        
     }
 
     /// Add a random contact.
     func addRandomContact() {
-        let randomName      = generateRandomName(length: 5)
-        let randomLName     = generateRandomName(length: 12)
+        let randomName      = generateRandomName( length: 5 )
+        let randomLName     = generateRandomName( length: 12 )
         let randomGender    = generateRandomGender()
         let randomFavorite  = generateRandomFavorite()
 
@@ -82,19 +91,19 @@ final class ContactsListViewModel {
             country     :   "Random Country",
             isFavorite  :   randomFavorite
         )
-        print( randomFavorite )
+        
         contactStore.contacts.append(randomContact)
     }
 
     
-    // Delete contacts at specified offsets.
+    /// Delete contacts at specified offsets.
     func deleteContacts( offSet : IndexSet ){
         
         contacts.contacts.remove( atOffsets: offSet )
         
     }
     
-    // Move contacts from one position to another.
+    /// Move contacts from one position to another.
     func moveContacts( from : IndexSet, to : Int ){
         
         contacts.contacts.move( fromOffsets: from , toOffset: to )

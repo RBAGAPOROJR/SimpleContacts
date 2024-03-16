@@ -21,6 +21,16 @@ extension ContactStore {
     static var mockData = [
         
         /// Mock data for testing purposes.
+        Contact( firstName  : "Ronald",
+                lastName    : "Bagaporo Jr.",
+                phone       : "+1 ( 519 ) 697 - 6380",
+                email       : "r.vbagaporo.jr@gmail.com",
+                gender      : "Male",
+                address     : "Fairview Avenue",
+                city        : "London, ON",
+                country     : "Canada",
+                isFavorite  : true ),
+        
         Contact( firstName  : "Tom",
                 lastName    : "Brady",
                 phone       : "( 416 )123-4567",
